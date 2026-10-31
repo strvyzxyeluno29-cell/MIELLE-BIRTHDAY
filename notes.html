@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes | Happy 18th</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+</head>
+<body>
+<a class="back" href="home.html">← Home</a>
+<section class="page">
+  <h2>Notes 📝</h2>
+  <div class="grid g-note" id="ng"></div>
+</section>
+<script src="common.js"></script>
+<script>
+/* ===== EDIT HERE: notes (t = title, x = text) ===== */
+const NOTES=[
+ {t:"NOTE 1: HANA",x:"mahal ka ng snmsnl &lt;3"},
+ {t:"NOTE 2: HANA",x:"you are worth loving, mielle namin"},
+ {t:"NOTE 3: JAYEL",x:"R.A 6089"},
+ {t:"NOTE 4: JAYEL",x:"JEREMIAH 29:11"},
+ {t:"NOTE 5: JAYEL",x:"Mabuhay ka!"},
+ {t:"NOTE 6: DARIANE",x:"strong girl bebe mielle"},
+ {t:"NOTE 7: DARIANE",x:"tumatanggap po ba kayo ng made with love?"},
+ {t:"NOTE 8: DARIANE",x:"sana makagala ulit tayo kasi naiipon na ang kwento ko?"},
+ {t:"NOTE 9: ADELAINE",x:"I hope all the happiness and kindness you give to others comes back to you a hundred times more."},
+ {t:"NOTE 10: ADELAINE",x:"Thank you for existing, Mielle."},
+ {t:"NOTE 11: ADELAINE",x:"I hope life is kind to you, because you have one of the kindest hearts I know."},
+ {t:"NOTE 12: ADDONA",x:"always be proud of how far you’ve come"},
+ {t:"NOTE 13: ADDONA",x:"remember that it’s okay to not be okay sometimes"},
+ {t:"NOTE 14: ADDONA",x:"get enough sleep"},
+ {t:"NOTE 15: ERICA",x:"stay healthy"},
+ {t:"NOTE 16: ERICA",x:"stay sweet and genuine"},
+ {t:"NOTE 17: ERICA",x:"stay being brave"},
+ {t:"NOTE 18: SHAWN",x:"stay strong—as always"},
+ {t:"NOTE 19: SHAWN",x:"always take care"},
+ {t:"NOTE 20: SHAWN",x:"you are cherished"},
+ {t:"NOTE 21: MARIELA",x:"ingat ka palagi mielle !"},
+ {t:"NOTE 22: MARIELA",x:"always take care of yourself:')"},
+  {t:"NOTE 23: AYESSA",x:"always kumain wag papalipas ng gutom"},
+   {t:"NOTE 24: AYESSA",x:"tumingin sa left and right pag tatawid"},
+   {t:"NOTE 25: AYESSA",x:"love ka namin lagi"},
+
+];
+/* =========================================================== */
+
+NOTES.forEach(n=>{
+ const d=document.createElement('div');d.className='note';
+ d.style.setProperty('--r',(Math.random()*4-2)+'deg');
+ d.innerHTML=`<b>${n.t}</b>${n.x}`;
+ $('ng').appendChild(d);
+});
+</script>
+</body>
+</html>

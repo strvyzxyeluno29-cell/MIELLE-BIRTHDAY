@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messages | Happy 18th</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+</head>
+<body>
+<a class="back" href="home.html">← Home</a>
+<section class="page wide">
+  <h2>Messages 💌</h2>
+  <div class="mbtns" id="mb"></div>
+</section>
+<script src="common.js"></script>
+<script>
+/* ===== EDIT HERE: names and letters ===== */
+const MESSAGES=[
+ {from:"Hana",text:"Para sa sobrang effort at mapagmahal namin na kaibigan,\n\nHappy birthday, mielle! I am grateful for having someone like you a part of my life and thank you for making me feel loved in certain ways. Sana sa kalagitnaan nang paghihirap, matandaan mong maraming nagmamahal sayo—life wouldn’t be complete without you by our side. The way you show love and care sa mga taong mahal mo, radiates how lovable you are. I love you so muchh, happy birthdayy!"},
+ {from:"Jayel",text:"happy birthday twin! HAHAHAHAHA kamote, bday na naman natin a, congrats, pwede ka na makulong HAHAHAHAHA galingan mo lagi sa kung saang daan ang tinatahak mo ngaun, alam ko naman na sooner or later, magiging isa lang mananagumpay sa larangang iyan. I-enjoy mo ang araw na to! Wala munang, stress, or anything, just peace and quiet, even if the world is not. The Lord is not yet done with u twinn! I know that He sees it all, and sometimes, kailangan lang natin lumapitt, I miss u mah twinnn, Godbless sauu. Keep safe lagi, see u soon! ❤️❤️❤️"},
+ {from:"Dariane",text:"happy birthday, mielleee !\n\nhappy legality bebe :') ang bebe kong super duper tapang at lakas. ang dami kong gustong sabihin, ang dami kong gustong ipagpasalamat sayo pero hindi ko mabuo ang mga sapat na salita para ron pero lagi mo lang tatandaan na kahit ano ang maging desisyon mo sa mga bagay, kung ano man ang gusto mong tahakin e sobrang proud ako sayo kasi alam kong ginawa mo ang best mo at pinag-isipan mong mabuti kung ano man ang napili mo. sobrang dami mang hindi maganda ang nangyari sa life natin wag mo kalilimutan na ang layo na ng narating mo—kinaya mo at sure akong kakayanin mo pa—palagi lang akong nandito, okay? love na love kitaaa! hindi ako mawawala at pwede mo akong tawagin any time, tulad ng dati—katulad noong elementary pa tayo :') i love youuuu !"},
+ {from:"Adelaine",text:"Happy 18th birthday, Mielle! Thank you for being such an important part of my life and for all the memories we've shared together. As you turn 18, I hope you continue to grow and become the happiest version of yourself. I'll always be cheering for you and wishing you the very best in life. There may be days when things get hard, but always remember that you are stronger than you think. Trust yourself and keep moving forward because brighter days will always come. No matter where life takes you, please never forget how special and loved you are. The people around you are lucky to have someone as genuine and kind as you. 🌟🌷"},
+ {from:"Addona",text:"hello, alexaaaa !! happiest 18th birthday.\n\nI wish that you live your life to the fullest, make beautiful memories, try new things, and never be afraid to choose what makes you happy. you deserve a life filled with genuine happiness, peace, and love.\n\nI hope you know how proud I am of you and of how far you’ve come. dherever you are in life right now, I’m proud of the person you’ve become and everything you’ve gone through to get here. I hope you continue to grow stronger through every challenge and learn to appreciate yourself, how much you’ve already accomplished, and to know how capable you are – kinaya mo nuon, at alam kong kakayanin mo rin ngayon.\n\nno matter where life takes you, always remember that you are loved, appreciated, and someone I will always be proud of. I hope this new chapter brings you closer to the life you’ve always dreamed of. please keep going – you’re doing better than you think.\n\nhappy birthday again and welcome to legality.\n\nI love youuu and I miss youu, alexaaa. wishing you nothing but the best, always"},
+ {from:"Erica",text:"Happy 18th birthday, baby naminnn! welcome to adulthood mielle, we will always support you as you start this new chapter, and wish naming maging filled 'to with happiness and unforgettable adventures. Sana ma-achieve mo lahat ng dreams and goals na pino-pursue mo this year. Stay as bright and amazing as you are—Enjoy ur daaaaay, always remember na we are always here to guide and support you, good luckies sa iyong journey. I love you so so much! 💗"},
+ {from:"Shawn",text:"happy happy legality, mielle! i'm beyond grateful to have a friend like u. hindi man na tayo madalas magkasama or magkausap but i hope yk that u r still one of the important people in my life. thanku for surviving through everything kahit na mahirap, i'm so so so proud of u : ) nandito kaming lahat everytime u need someone, omki? again, happy happy birthday, mielle! welcome to adulthood, loveu vvvv much!"},
+ {from:"Mariela",text:"Happy birthday, Mielle!\n\nWelcome to adulthood! I’m so grateful to have you as my friend. You mean so much to me, and I hope you’ll never forget how special you are and how much happiness you bring into our lives.\n\nNo matter where life takes us, I’ll always be thankful that I got to know you. All the moments we’ve shared are special to me; the laughter, the conversations, and even the quiet times when just being together is enough.\n\nI know life can be hard, but keep fighting and always look on the positive side of life. I’m always here for you. May your day be filled with all the joy you deserve. Here’s to more beautiful memories, laughter, and wonderful moments together.\n\nI love you, Mielle!"},
+ {from:"Kiesha",text:"happy happy birthdayyy mielle happy legality dayyy enjooyy your day and also if u neeed kausap im here always for u if u think no one will listen makikinig ako kami laging open ang doors namin for u hindi ka nag iisa mahal ka naminnn. goodluck lagi sa college life laban lang konting kembot nalang weeee loveeee uu!"},
+
+ {from:"Ayessa",text:"Dear you,\n\nhappy happy 18th birthday mielle, wishing you all the best, i hope u enjoy your special dayy! thank you for being a friend na palaging nandyan kahit hndi madalas magkita at magkausap. i hope na malagpasan mo lahat ng mga struggles mo in life, palagi mong ingatan at alagaan ang sarili mo yung health moo. palagi mong tandaan na nandto lng kami for you alwayss, kapag kailangan mo ng kausap at kasama nandto kami. thank u sa more than years nating friendship. love na love ka namin, enjoyin mo lng ang buhay lagi kaming nandto para suportahan ka sa lahat. happy birthday mielle i love u so much ❤️🍰\n\nWith love,\nAyessa"},
+ 
+ {from:"Brylle",text:"Dear you,\n\n Happy 18th birthday, Mielle! Reaching your debut is such a huge milestone, and I hope tonight is everything you’ve been dreaming of. Stepping into adulthood is an exciting new chapter. Take the time to soak in all the love, laughter, and appreciation from everyone around you tonight. You’ve grown into such a wonderful person, and it’s truly amazing to see where your heart, drive, and talent are taking you. As you take this step forward, I wish you endless opportunities, unforgettable adventures, and the confidence to keep going after whatever you set your mind to. Enjoy the journey, make great memories, and never lose sight of what makes you so special.Have an absolute blast celebrating your night, Mielle—you deserve all the happiness in the world! \n\nWith love,\nBrylle"},
+ 
+ {from:"Kirsten",text:"Dear you,\n\n Happy 18th Birthday, Mielle! It’s crazy to think you’re officially turning 18, but seeing the bright, kind, and amazing person you’ve grown into makes this debut so exciting to celebrate. Entering adulthood opens up a whole new world, but you’ve already got the heart and brains to handle whatever comes next. Tonight is all about celebrating you, so don't stress about anything—just laugh, dance, eat good food, and make memories with the people who love you most.I hope this next year brings you closer to your biggest goals, surrounded by great friends and non-stop happiness. Keep being your awesome self, trust your instincts, and enjoy every single step of this new journey. Have an unforgettable night, Mielle! Cheers to 18! \n\nWith love,\nKirsten"}
+];
+const TYPE_SPEED=100; // milliseconds per letter (bigger = slower)
+/* ======================================== */
+
+// each button gets its own message box directly under it
+let tt;
+MESSAGES.forEach(m=>{
+ const w=document.createElement('div');
+ const b=document.createElement('button');b.className='btn';b.textContent=m.from+"'s message 💌";
+ const p=document.createElement('div');p.className='paper';
+ b.onclick=()=>show(p,b,m.text);
+ w.append(b,p);$('mb').appendChild(w);
+});
+function show(p,b,t){
+ clearInterval(tt);
+ if(p.style.display==='block'){p.style.display='none';p.textContent='';return} // tap again = close
+ document.querySelectorAll('.paper').forEach(e=>{if(e!==p){e.style.display='none';e.textContent=''}});
+ p.style.display='block';p.className='paper';p.textContent='';
+ b.scrollIntoView({behavior:'smooth',block:'start'});
+ let i=0;
+ tt=setInterval(()=>{p.textContent+=t[i++];p.scrollTop=p.scrollHeight;
+  if(i>=t.length){clearInterval(tt);p.classList.add('done')}},TYPE_SPEED);
+}
+</script>
+</body>
+</html>

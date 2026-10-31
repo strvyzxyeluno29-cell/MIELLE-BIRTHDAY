@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy 18th Birthday</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
+</head>
+<body>
+<section id="loginPage" class="page center">
+  <div class="big18">18</div>
+  <h1 style="font-size:2.6rem">Happy Birthday!</h1>
+  <p style="color:var(--mut)">A little surprise made just for you ✨</p>
+  <div class="box">
+    <label for="nm">Name:</label><input id="nm" placeholder="Name" autocomplete="off">
+      <label for="sx">Sex:</label><select id="sx"><option value="">Select…</option><option>Female</option><option>Male</option></select>
+    <label for="ag">Age:</label><input id="ag" type="number" min="1" max="120" placeholder="Enter your age">
+    <label for="bd">Birthday:</label><input id="bd" type="date">
+    <label for="gm">Email:</label><input id="gm" type="email" placeholder="yourname@email.com" autocomplete="off">
+    <label for="fc">Favorite color:</label>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <input id="fc" type="color" value="#ff4fa3" style="width:56px;height:44px;padding:3px;cursor:pointer">
+      <span id="sw" style="display:flex;gap:7px;flex-wrap:wrap"></span>
+    </div>
+    <small style="display:block;text-align:left;color:var(--mut);margin-top:6px">Pick any color — the whole website will match it ✨</small>
+    <button class="btn w" onclick="proceed()">Log in ✨</button>
+  </div>
+</section>
+
+<style>
+#ld{display:none;position:fixed;inset:0;z-index:50;align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:20px;text-align:center;background:var(--bg)}
+#sp{width:64px;height:64px;border-radius:50%;border:6px solid #ffffff22;border-top-color:var(--sky);border-right-color:var(--blue);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#dlg{display:none;max-width:360px}
+#dlg p{font-size:1.1rem;margin-bottom:6px}
+#dlg .row{display:flex;gap:12px;margin-top:18px}#dlg .btn{flex:1;padding:12px 10px}
+#dlg .btn.cn{background:#ffffff1a;box-shadow:none;border:1px solid var(--sky)}
+</style>
+<style>
+#vf{display:none;position:fixed;inset:0;z-index:40;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--bg)}
+#vf .box{max-width:360px;width:100%}#vc{text-align:center;font-size:1.6rem;letter-spacing:.4rem}#vm{min-height:1.3em;margin-top:10px;font-size:.9rem;color:var(--sky)}
+#vf .lnk{background:none;border:0;color:var(--sky);text-decoration:underline;cursor:pointer;font:inherit;font-size:.85rem;margin:10px 6px 0}
+</style>
+<div id="vf"><div class="box"><h2 style="margin:0 0 6px;font-size:2rem">Check your email 💌</h2>
+  <p id="vt" style="font-size:.95rem"></p>
+  <input id="vc" inputmode="numeric" maxlength="6" placeholder="------" autocomplete="one-time-code">
+  <div id="vm"></div>
+  <button class="btn w" onclick="verify()">Verify</button>
+  <button class="lnk" onclick="resend()">Resend code</button><button class="lnk" onclick="$('vf').style.display='none'">Change email</button></div></div>
+<style>
+#pv{display:none;position:fixed;inset:0;z-index:41;align-items:center;justify-content:center;padding:16px;background:var(--bg)}
+#pv .box{max-width:400px;width:100%;max-height:92vh;display:flex;flex-direction:column;text-align:left}
+#pv h2{margin:0 0 8px;font-size:1.8rem;text-align:center}
+#pt{overflow-y:auto;font-size:.92rem;line-height:1.5;padding-right:4px}
+#pt ul{margin:8px 0 0;padding-left:18px}#pt li{margin-bottom:8px}
+#pv .agree{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:.92rem;cursor:pointer}
+#pv .agree input{width:22px;height:22px;flex:none;margin:0;accent-color:var(--sky)}
+#pm{min-height:1.3em;margin-top:8px;font-size:.9rem;color:var(--sky)}
+#pv .row{display:flex;gap:12px;margin-top:10px}#pv .row .btn{flex:1;padding:12px 10px}
+#pv .btn.cn{background:#ffffff1a;box-shadow:none;border:1px solid var(--sky)}
+#pv .box.bad{animation:shk .4s}
+</style>
+<div id="pv"><div class="box" id="pb">
+  <h2>Data Privacy Notice 🔒</h2>
+  <div id="pt">
+    <p id="pn" style="font-size:1.05rem;margin:0 0 6px;word-break:break-word"></p>
+    <p>This website is a private birthday gift made only for Mielle. Before you continue, please read:</p>
+    <ul>
+      <li><b>Your information stays yours.</b> What you type here (name, age, birthday, favorite color) is only used to open this website. It is not sent to any server, sold, or shared with anyone. A few details, like your name and favorite color, may be saved in this browser to show your greeting and theme.</li>
+      <li><b>The messages are private.</b> The messages, notes, photos and songs inside were shared with love by friends and family, for Mielle’s eyes only.</li>
+      <li><b>No leaking, please.</b> Do not screenshot, copy, record, forward or post any message, note, photo or song without the owner’s permission.</li>
+    </ul>
+  </div>
+  <label class="agree"><input type="checkbox" id="pa"><span>I, <b id="pn2" style="word-break:break-word"></b>, have read the Data Privacy Notice and I agree to keep everything inside this website private.</span></label>
+  <div id="pm"></div>
+  <div class="row"><button class="btn cn" onclick="privacyCancel()">Cancel</button><button class="btn" onclick="privacyNext()">Continue</button></div>
+</div></div>
+<style>
+#qz{display:none;position:fixed;inset:0;z-index:40;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--bg)}
+#qz .box{max-width:380px;width:100%}
+#qz .dots{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+#qz .dots i{width:12px;height:12px;border-radius:50%;background:#ffffff33}
+#qz .dots i.on{background:var(--sky)}#qz .dots i.ok{background:var(--blue);box-shadow:0 0 8px var(--sky)}
+#qq{font-size:1.2rem;margin:6px 0 14px;line-height:1.35}
+#qh{min-height:1.3em;margin-top:10px;font-size:.92rem;color:var(--sky)}
+#qm{min-height:1.3em;margin-top:8px;font-size:.95rem}
+#qz .row{display:flex;gap:12px;margin-top:14px}#qz .row .btn{flex:1;padding:12px 10px}
+#qz .btn.cn{background:#ffffff1a;box-shadow:none;border:1px solid var(--sky)}
+@keyframes shk{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+#qz .box.bad{animation:shk .4s}
+</style>
+<div id="qz"><div class="box" id="qb">
+  <div class="dots" id="qd"></div>
+  <p id="qn" style="font-size:.85rem;opacity:.8"></p>
+  <h2 id="qq"></h2>
+  <input id="qa" placeholder="Your answer" autocomplete="off">
+  <div id="qm"></div><div id="qh"></div>
+  <div class="row"><button class="btn cn" onclick="showHint()">💡 Hint</button><button class="btn" onclick="checkAns()">Submit</button></div>
+</div></div>
+<div id="ld"><div id="sp"></div><p id="lt" style="color:var(--sky)">Loading…</p>
+  <div id="dlg" class="box"><p>⚠️ Your website is not functioning properly, please log out</p>
+    <div class="row"><button class="btn" onclick="okay()">Okay</button><button class="btn cn" onclick="cancel()">Cancel</button></div></div></div>
+
+<!-- all other pages open inside this frame, so the music is never interrupted -->
+<iframe id="app" style="display:none;position:fixed;inset:0;width:100%;height:100%;border:0;z-index:5;background:var(--bg)"></iframe>
+
+<script src="common.js"></script>
+<script>
+/* ===== EDIT HERE: background music (invisible; plays on every page except Music) ===== */
+const BGM_SRC="2.mp3";
+const BGM_VOLUME=1; // 0 to 1
+/* ==================================================================================== */
+
+try{startFireworks()}catch(e){}
+const bgm=new Audio(BGM_SRC);bgm.loop=true;bgm.volume=BGM_VOLUME;
+bgm.onerror=()=>alert('Cannot load music: '+BGM_SRC);
+let started=false;
+
+const FULL_NAME='Mielle Alexa Lustre';
+const norm=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\./g,'').replace(/\s+/g,' ').trim().toLowerCase();
+let color='#ff4fa3'; // starting theme: pink gradient (she can still pick any color)
+function pick(c){color=c;$('fc').value=c;B18.apply(c)} // live theme preview
+$('fc').oninput=()=>pick($('fc').value);
+['#ff4fa3','#2f6bff','#2eb872','#9b5de5','#ff4d4d','#ff9f1c','#ffd23f','#14c8c8'].forEach(c=>{
+  const d=document.createElement('button');d.type='button';d.style.cssText='width:26px;height:26px;border-radius:50%;border:2px solid #fff;cursor:pointer;background:'+c;
+  d.onclick=()=>pick(c);$('sw').appendChild(d)});
+
+/* ===== EDIT HERE: email code (EmailJS) ===== */
+const EMAILJS_PUBLIC_KEY='cFJcMyk6vqanCU0bd';
+const EMAILJS_SERVICE_ID='service_su69tph';
+const EMAILJS_TEMPLATE_ID='template_ni6lxnq';
+const ALLOWED_EMAILS='';   // e.g. 'mielle@gmail.com' (or several, separated by commas) -> only these get a code. Leave '' to accept ANY email address
+/* =========================================== */
+let code='',codeAt=0,sent=0,lastSend=0,gmail='',busy=false;
+const vmsg=t=>{$('vm').textContent=t};
+async function sendCode(){
+  if(Date.now()-lastSend<15000){vmsg('Please wait a few seconds before asking for another code.');return false}
+  if(sent>=8){vmsg('Too many codes requested. Please try again later.');return false}
+  const c=String(100000+crypto.getRandomValues(new Uint32Array(1))[0]%900000);
+  try{
+    const r=await fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({service_id:EMAILJS_SERVICE_ID,template_id:EMAILJS_TEMPLATE_ID,user_id:EMAILJS_PUBLIC_KEY,
+        template_params:{to_email:gmail,email:gmail,user_email:gmail,reply_to:gmail,code:c,to_name:'Mielle'}})});
+    if(!r.ok)throw new Error(await r.text());
+    code=c;codeAt=Date.now();lastSend=Date.now();sent++;return true;
+  }catch(e){alert('Could not send the email 😢 '+(e.message||e));return false}
+}
+async function proceed(){
+  if(busy)return;
+  const n=$('nm').value,sx=$('sx').value,ag=$('ag').value,b=$('bd').value,c=color;
+  gmail=$('gm').value.trim().toLowerCase();
+  if(norm(n)!==norm(FULL_NAME)){alert('Please enter your complete name 💖');return}
+  if(!sx||!ag||!b||!gmail){alert('Please fill in everything, including your email 💖');return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(gmail)){alert('Please enter a valid email address');return}
+  if(ALLOWED_EMAILS&&!ALLOWED_EMAILS.toLowerCase().split(',').map(x=>x.trim()).includes(gmail)){alert('That email is not recognized.');return}
+  try{localStorage.setItem('b18name','Mielle');localStorage.setItem('b18color',c)}catch(e){}
+  $('app').name='b18c:'+c;
+  bgm.play().then(()=>{started=true}).catch(()=>{}); // starts automatically on this tap
+  busy=true;const ok=await sendCode();busy=false;
+  if(ok){$('vt').textContent='We sent a 6-digit code to '+gmail+'. It may take a minute (check Spam too).';vmsg('');$('vc').value='';$('vf').style.display='flex';$('vc').focus()}
+}
+function verify(){
+  const v=$('vc').value.trim();
+  if(!code||Date.now()-codeAt>600000){vmsg('That code expired. Tap "Resend code".');return}
+  if(v!==code){vmsg('Wrong code, please try again.');return}
+  code='';$('vf').style.display='none';openPrivacy(); // next: privacy notice -> questions -> loading
+}
+async function resend(){if(await sendCode())vmsg('A new code was sent ✉️')}
+function openPrivacy(){const nm=$('nm').value.trim().replace(/\s+/g,' ');$('pn').textContent='Hello, '+nm+'! 👋';$('pn2').textContent=nm;$('pa').checked=false;$('pm').textContent='';$('pt').scrollTop=0;$('pv').style.display='flex'}
+function privacyCancel(){$('pv').style.display='none'}
+function privacyNext(){
+  if(!$('pa').checked){
+    $('pm').textContent='Please tick the checkbox to agree before continuing ☑️';
+    const b=$('pb');b.classList.remove('bad');void b.offsetWidth;b.classList.add('bad');return}
+  $('pv').style.display='none';startQuiz();
+}
+/* ===== EDIT HERE: the 5 questions (a = accepted answers, h = hint) ===== */
+const QUIZ=[
+ {q:'What is the national flower of the Philippines?',a:['sampaguita'],h:"It's a small, white, very fragrant flower that is often made into garlands."},
+ {q:'How many days are in a leap year?',a:['366'],h:"It's one more than a normal year."},
+ {q:'What is the biggest planet in our solar system?',a:['jupiter'],h:'It has a giant red storm that has lasted for hundreds of years.'},
+ {q:'Which animal is called "man\'s best friend"?',a:['dog','dogs','aso'],h:'It barks and wags its tail.'},
+ {q:'What color do you get when you mix blue and yellow?',a:['green','berde'],h:"It's the color of leaves."}
+];
+/* ======================================================================= */
+let qi=0;
+function startQuiz(){qi=0;$('qz').style.display='flex';showQ()}
+function showQ(){
+  const q=QUIZ[qi];
+  $('qn').textContent='Question '+(qi+1)+' of '+QUIZ.length;$('qq').textContent=q.q;
+  $('qa').value='';$('qm').textContent='';$('qh').textContent='';
+  $('qd').innerHTML=QUIZ.map((_,i)=>'<i class="'+(i<qi?'ok':i===qi?'on':'')+'"></i>').join('');
+  setTimeout(()=>$('qa').focus(),50);
+}
+function showHint(){$('qh').textContent='💡 Hint: '+QUIZ[qi].h}
+function checkAns(){
+  const v=' '+norm($('qa').value).replace(/[^a-z0-9 ]/g,'')+' ';
+  if(v.trim()===''){$('qm').textContent='Type your answer first 😊';return}
+  if(QUIZ[qi].a.some(x=>v.includes(' '+norm(x)+' '))){
+    $('qm').textContent='Correct! 🎉';qi++;
+    setTimeout(()=>{if(qi>=QUIZ.length){$('qz').style.display='none';showLoad()}else showQ()},700);
+  }else{
+    $('qm').textContent='Not quite, try again 💭 (tap Hint if you need help)';
+    const b=$('qb');b.classList.remove('bad');void b.offsetWidth;b.classList.add('bad');
+  }
+}
+$('qa').addEventListener('keydown',e=>{if(e.key==='Enter')checkAns()});
+
+// loading screen -> "not functioning" message
+function showLoad(){
+  $('ld').style.display='flex';$('dlg').style.display='none';
+  $('sp').style.display='block';$('lt').style.display='block';
+  setTimeout(()=>{$('sp').style.display='none';$('lt').style.display='none';$('dlg').style.display='block'},2600);
+}
+function okay(){
+  $('ld').style.display='none';confetti();
+  $('loginPage').style.display='none';
+  $('app').src='home.html';$('app').style.display='block';
+}
+function cancel(){showLoad()} // Cancel just brings the loading + message back again 😄
+
+// pause the music on the Music page, resume it on every other page
+addEventListener('message',e=>{
+  const p=e.data&&e.data.b18page;if(!p)return;
+  if(p==='music.html')bgm.pause();
+  else if(bgm.paused)bgm.play().then(()=>{started=true}).catch(()=>{});
+});
+</script>
+</body>
+</html>
